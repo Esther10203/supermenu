@@ -4,12 +4,12 @@
     "slug": "supermenu",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/SupaMenu.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/back.PNG",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/SupaMenu.png",
+      "width": 300,
+      "backgroundColor": "#FEA04A"
     },
     "assetBundlePatterns": [
       "**/*"

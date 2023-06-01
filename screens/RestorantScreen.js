@@ -22,8 +22,8 @@ export default function RestorantScreen() {
 
       <Text style={{marginVertical: 20, color: '#FEA04A', fontWeight: '500'}}>Nearby Restaurant</Text>
 
-      {data.map(() => (
-            <View style={[styles.row, {backgroundColor: '#F3F7FD', padding: 10, marginBottom: 10}]}>
+      {data.map((key) => (
+            <View key={key} style={[styles.row, {backgroundColor: '#F3F7FD', padding: 10, marginBottom: 10}]}>
             <Image source={require('../assets/download.jpg')} style={styles.image} />
             <View>
                <Text style={{fontSize: 17, fontWeight: '500', marginTop: 5}}>Choose Kigali</Text>

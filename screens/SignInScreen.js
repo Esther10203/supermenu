@@ -19,33 +19,36 @@ export default function SignInScreen({ navigation, route }) {
   const handleValidation = () => {
     if (!validateEmail(email)) {
       Alert.alert('Invalid Email', 'Please enter a valid email address.');
+      return false;
     }
 
     if (password.length < 4) {
       Alert.alert('Invalid Password', 'Password should be more than 5 characters long.');
+      return false
     } 
+
+    return true;
   };
 
   const validateEmail = (email) => {
-    // Regular expression pattern to validate email format
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailRegex.test(email);
   };
 
   const postData = async (data) => {
     try {
-      const response = await axios.post('http://localhost:8080/auth/auth/login', data);
-      console.log('Post response:', response);
+      console.log(data);
+      const response = await axios.post('http://192.168.56.1:8080/register/login', data);
+      if(response.data) handleLogin();
     } catch (error) {
       console.error('Post error:', error);
     }
   };
 
   const handleSignIn = () => {
-    handleValidation();
-    postData({email: email, password: password});
-    console.log(email)
-    // handleLogin();
+    if(handleValidation()){
+      postData({email: email, password: password});
+    }
   };
 
   return (
@@ -57,7 +60,7 @@ export default function SignInScreen({ navigation, route }) {
          </View>
 
          <Text style={{fontSize: 18, color: '#021453', fontWeight: '500', textAlign: 'center', marginTop: 20}}>Welcome ...</Text>
-         <Text style={{fontSize: 16, color: '#D2D2D2', fontWeight: '500', textAlign: 'center', marginTop: 10, marginBottom: 30}}>Sign in to continue</Text>
+         <Text style={{fontSize: 16, color: '#D2D2D2', fontWeight: '500', textAlign: 'center', marginTop: 10, marginBottom: 20}}>Sign in to continue</Text>
 
          <View style={styles.group}>
             <View style={styles.iconContainer}>
@@ -103,11 +106,6 @@ export default function SignInScreen({ navigation, route }) {
                <Text style={{color: '#FEA04A', textAlign: 'center', fontSize: 15, fontWeight: '600'}} >Register</Text>
             </TouchableOpacity>
          </View>
-
-        {/* <TextInput placeholder="Username" />
-        <TextInput placeholder="Password" secureTextEntry />
-        <Button title="Sign In" onPress={handleSignIn} />
-        <Button title="Sign Up" onPress={() => navigation.navigate("SignUp")} /> */}
       </View>
     </View>
   );
@@ -120,7 +118,7 @@ const styles = StyleSheet.create({
   },
   mainbg: {
     padding: 20,
-    top: 100,
+    top: 90,
     flex: 1,
     backgroundColor: "#fff",
     borderTopRightRadius: 30,

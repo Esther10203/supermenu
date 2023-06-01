@@ -28,9 +28,9 @@ export default function CartScreen() {
         </View>
       </View>
 
-      <Text style={{marginBottom: 10, fontSize: 20, fontWeight: '500', textAlign: 'right'}}>Choose Kigali</Text>
+      <Text style={{marginBottom: 10, fontSize: 18, fontWeight: '500', textAlign: 'right'}}>Choose Kigali</Text>
 
-      <Text style={{marginBottom: 10, fontSize: 20, color: '#FEA04A', fontWeight: '500', textAlign: 'right'}}>Drinks</Text>
+      <Text style={{marginBottom: 10, fontSize: 18, color: '#FEA04A', fontWeight: '500', textAlign: 'right'}}>Drinks</Text>
 
       {data.map(() => (
             <View style={[styles.row, {backgroundColor: '#F3F7FD', padding: 10, marginBottom: 10, alignItems: 'center', width: '100%'}]}>
@@ -55,14 +55,14 @@ export default function CartScreen() {
             </View>
       ))}
       
-      <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
+      <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 10}}>
          <Text style={{color: '#FEA04A', fontSize: 15, fontWeight: 500}}>More drinks</Text>
          <Icon name="arrow-right" color='#FEA04A' size={20} style={{marginLeft: 10}}/>
       </View>
 
-      <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 40}}>
-         <Text style={{fontSize: 18, fontWeight: '500'}}>Total</Text>
-         <Text style={{fontSize: 18, fontWeight: '500', color:'#FEA04A' }}>Frw 16,000</Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
+         <Text style={{fontSize: 16, fontWeight: '500'}}>Total</Text>
+         <Text style={{fontSize: 16, fontWeight: '500', color:'#FEA04A' }}>Frw 16,000</Text>
       </View>
 
       <TouchableOpacity style={styles.submit} onPress={() => navigation.navigate("SignIn")}>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    backgroundColor: 'white',
-    paddingHorizontal: 20,
+    paddingHorizontal: 13,
     paddingVertical: 40
   },
   row: {
@@ -110,13 +110,12 @@ const styles = StyleSheet.create({
     },
     submit: {
       backgroundColor: '#FEA04A',
-      paddingVertical: 12,
-      paddingHorizontal: 24,
+      paddingVertical: 10,
       borderRadius: 5,
-      marginTop: 30
+      marginTop: 10
     },
     buttonText: {
-      fontSize: 18,
+      fontSize: 16,
       color: 'white',
       textAlign: 'center',
       fontWeight: '500'
